@@ -1,0 +1,102 @@
+Git e github
+1-Configurações iniciais
+-Nome do usuário:
+$ git config --global user.name "Diego Santos"
+-Senha do usuário: 
+$ git config --global user.email "diegoluizcsti@gmail.com"
+-Escolher editor de texto padrão:
+$ git config –global core.editor s 
+no exemplo acima usei o sublime text.
+
+2-Essencial do git
+ -Criar pasta raíz do projeto, a pasta tem que ser o mesmo nome do projeto
+$ mkdir nome-do-projeto
+-entre na pasta e inicie o git nela
+$ cd nome-da-pasta
+$ git init
+
+-Para saber que estado está suas versão
+$ git status
+
+-Crie um arquivo e para adicionar um arquivo no git digite:
+$ git add nome-do-arquivo
+-Comitar o arquivo
+$ git commit -m "mensagem para guiar os commites"
+
+-Para mostar as informações dos commits
+$ git log
+
+Procurar os os commits pelo nome do autor
+$ git log --author=”nome do autor”
+
+-Mostra nome dos autores por ordem o quais arquivos foram commitados e quantidade
+$ git shortlog
+-Mostrar um commit especifico pelo numero de indentificação do commit
+$ git show f78360baa468ce5df303136e6d652e2944d84234
+-Mostrar modificações antes de add ou comitar
+$ git diff
+-Mostrar só o nome do arquivo modificado antes de ad
+$ git diff –name-only
+-Voltar para modificação anterior antes de add
+$ git checkout  nome-do-arquivo
+
+-Voltar do estado de add do arquivo para o anterior
+$ git reset HEAD nome-do-arquivo
+
+-adicionar e comitar tudo de uma vez
+$ git commit -am “menssagem”
+git reset
+--soft: só volta o comiit mas o arquivo vai tá no estado para comitar
+--mixed: retorna o arquivo para o modefied, estdo antes do add
+--hard: mata tudo deito até o commit escolhido
+
+Github
+Tendo ideia que já temos um projeto criado no git, vá no site do github e faça um projeto lá depois ligue com o do git
+$ git remote add origin https://github.com/diego70/estudos-github.git
+a url é do repositório do projeto que você criou no github, o site já dá esse comando depois é digitar mais uma linha
+$ git push -u origin master
+pronto já subiu todos os arquivos do git para o github
+-Para subir os commits feitos para o github é só digitar
+$ git push origin master
+git push é empurrar para o github, origin é o nome dado para saber qual a origem do projeto, master é o nome do branch onde está, em projetos vão ter outros branch, o master é o branch principal
+
+-Criar um branch
+$ git checkout -b nome-do-branch
+-Mostrar todos branchs existentes
+$ git branch
+-Mudar de branch
+$ git checkout nome-do-branch
+-Pagar um branch
+$ git branch -D nome-do-branch 
+
+-Fazer um merge entre dois branchs
+$ git merge nome-do-branch
+
+-Mostrar um grafico dos commits e merges feito
+$ git log –graph
+
+-Fazer um rebase
+$ git rebase nome-do-branch
+
+EXTRAS
+salvar o arquivo passando com o status e trabalho
+$ git stash
+
+-Com o git stash outro brash pode pegr esse arquivo e utuliza-lo mesmo sem ter sido adicionado e commitado
+$ git stash apply
+mostrar a lista de todos os stash
+$ git stash list
+limpar todos os stash do branch
+$ git stash clear
+
+-Criar atalhos para comando
+$git config --global alias.s status
+esse comando está fazendo com  que toda vez que digite git s, mostre o status
+mostrar versionamento por tags
+criando uma tag
+$ git tag -a 1.0.0 -m “minha primeira tag"
+subindo tag par o repositorio
+$ git push origin master --tags
+no release do projeto no github vai aparecer a tag que passou no nosso caso 1.0.0
+
+
